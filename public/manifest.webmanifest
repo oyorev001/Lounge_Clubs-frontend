@@ -1,0 +1,24 @@
+{
+  "name": "Oyo State Lounge & Clubs Portal",
+  "short_name": "OYO L&C",
+  "description": "Book school sports fields, halls and event spaces across Oyo State.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#700617",
+  "icons": [
+    {
+      "src": "/icons/icon-64x64.png",
+      "sizes": "64x64",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-683x619.webp",
+      "sizes": "683x619",
+      "type": "image/webp",
+      "purpose": "any"
+    }
+  ]
+}

@@ -1,0 +1,611 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * Open School Field Platform — design system
+ * Palette: Oyo Terracotta (clay, ochre, sand, ink)
+ * All colors are oklch semantic tokens. Never hardcode colors in components.
+ */
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+
+  --font-display: "Fraunces", ui-serif, Georgia, serif;
+  --font-sans: "Karla", ui-sans-serif, system-ui, sans-serif;
+  --font-lobster: "Lobster Two", cursive;
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-brand: var(--brand);
+  --color-brand-foreground: var(--brand-foreground);
+  --color-brand-tint: var(--brand-tint);
+  --color-brand-tint-foreground: var(--brand-tint-foreground);
+  --color-brand-tint-soft: var(--brand-tint-soft);
+  --color-brand-tint-soft-foreground: var(--brand-tint-soft-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-success: var(--success);
+  --color-success-foreground: var(--success-foreground);
+  --color-warning: var(--warning);
+  --color-warning-foreground: var(--warning-foreground);
+  --color-info: var(--info);
+  --color-info-foreground: var(--info-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ring-offset-background: var(--background);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+:root {
+  --radius: 0.5rem;
+
+  --background: oklch(0.985 0.005 10);
+  --foreground: oklch(0.208 0.024 18);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.208 0.024 18);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.208 0.024 18);
+
+  /* Brand: #700617 deep maroon */
+  --brand: oklch(0.348 0.135 21.7);
+  --brand-foreground: oklch(1 0 0);
+  --brand-tint: oklch(0.515 0.074 7);
+  --brand-tint-foreground: oklch(1 0 0);
+  --brand-tint-soft: oklch(0.936 0.014 6.7);
+  --brand-tint-soft-foreground: oklch(0.348 0.135 21.7);
+
+  --primary: var(--brand);
+  --primary-foreground: var(--brand-foreground);
+
+  --secondary: oklch(0.955 0.012 8);
+  --secondary-foreground: oklch(0.348 0.135 21.7);
+
+  --muted: oklch(0.957 0.008 8);
+  --muted-foreground: oklch(0.505 0.028 12);
+
+  --accent: oklch(0.348 0.135 21.7);
+  --accent-foreground: oklch(1 0 0);
+
+  --destructive: oklch(0.535 0.196 25.5);
+  --destructive-foreground: oklch(0.985 0.012 84);
+  --success: oklch(0.508 0.104 152);
+  --success-foreground: oklch(0.985 0.012 84);
+  --warning: oklch(0.745 0.135 72);
+  --warning-foreground: oklch(0.246 0.043 55);
+  --info: oklch(0.502 0.084 235);
+  --info-foreground: oklch(0.985 0.012 84);
+
+  --border: oklch(0.898 0.012 8);
+  --input: oklch(0.898 0.012 8);
+  --ring: oklch(0.348 0.135 21.7);
+
+  --chart-1: oklch(0.348 0.135 21.7);
+  --chart-2: oklch(0.515 0.074 7);
+  --chart-3: oklch(0.745 0.135 72);
+  --chart-4: oklch(0.508 0.104 152);
+  --chart-5: oklch(0.502 0.084 235);
+
+  --sidebar: oklch(0.244 0.078 19);
+  --sidebar-foreground: oklch(0.949 0.012 8);
+  --sidebar-primary: oklch(0.348 0.135 21.7);
+  --sidebar-primary-foreground: oklch(1 0 0);
+  --sidebar-accent: oklch(0.31 0.082 18);
+  --sidebar-accent-foreground: oklch(0.975 0.008 8);
+  --sidebar-border: oklch(0.36 0.07 15);
+  --sidebar-ring: oklch(0.515 0.074 7);
+
+  --gradient-clay: linear-gradient(
+    135deg,
+    oklch(0.348 0.135 21.7) 0%,
+    oklch(0.44 0.115 15) 55%,
+    oklch(0.515 0.074 7) 100%
+  );
+  --shadow-clay: 0 18px 40px -22px oklch(0.348 0.135 21.7 / 0.45);
+  --shadow-card: 0 1px 2px oklch(0.213 0.014 45 / 0.06), 0 8px 24px -18px oklch(0.213 0.014 45 / 0.35);
+}
+
+.dark {
+  --background: oklch(0.181 0.026 18);
+  --foreground: oklch(0.949 0.012 8);
+  --card: oklch(0.226 0.032 18);
+  --card-foreground: oklch(0.949 0.012 8);
+  --popover: oklch(0.226 0.032 18);
+  --popover-foreground: oklch(0.949 0.012 8);
+  --brand: oklch(0.548 0.152 20);
+  --brand-foreground: oklch(1 0 0);
+  --brand-tint: oklch(0.615 0.074 7);
+  --brand-tint-foreground: oklch(0.181 0.026 18);
+  --brand-tint-soft: oklch(0.318 0.048 12);
+  --brand-tint-soft-foreground: oklch(0.949 0.012 8);
+  --primary: var(--brand);
+  --primary-foreground: var(--brand-foreground);
+  --secondary: oklch(0.286 0.032 16);
+  --secondary-foreground: oklch(0.949 0.012 8);
+  --muted: oklch(0.286 0.032 16);
+  --muted-foreground: oklch(0.735 0.022 12);
+  --accent: oklch(0.548 0.152 20);
+  --accent-foreground: oklch(1 0 0);
+  --destructive: oklch(0.629 0.181 25.5);
+  --destructive-foreground: oklch(0.985 0.012 84);
+  --success: oklch(0.643 0.108 152);
+  --success-foreground: oklch(0.196 0.02 45);
+  --warning: oklch(0.789 0.132 72);
+  --warning-foreground: oklch(0.196 0.02 45);
+  --info: oklch(0.641 0.088 235);
+  --info-foreground: oklch(0.196 0.02 45);
+  --border: oklch(1 0 0 / 12%);
+  --input: oklch(1 0 0 / 16%);
+  --ring: oklch(0.548 0.152 20);
+  --sidebar: oklch(0.208 0.036 18);
+  --sidebar-foreground: oklch(0.93 0.012 8);
+  --sidebar-primary: oklch(0.548 0.152 20);
+  --sidebar-primary-foreground: oklch(1 0 0);
+  --sidebar-accent: oklch(0.286 0.042 16);
+  --sidebar-accent-foreground: oklch(0.949 0.012 8);
+  --sidebar-border: oklch(1 0 0 / 12%);
+  --sidebar-ring: oklch(0.548 0.152 20);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html {
+    overflow-x: clip;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    overflow-x: clip;
+    max-width: 100vw;
+  }
+
+  #root {
+    max-width: 100vw;
+    overflow-x: clip;
+  }
+
+  button,
+  a,
+  [role="button"],
+  summary,
+  [tabindex]:not([tabindex="-1"]),
+  label[for] {
+    cursor: pointer;
+  }
+
+  button:disabled,
+  [role="button"][aria-disabled="true"] {
+    cursor: not-allowed;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    letter-spacing: -0.015em;
+  }
+}
+
+@utility text-gradient-clay {
+  background-image: var(--gradient-clay);
+  background-clip: text;
+  color: transparent;
+}
+
+@utility bg-gradient-clay {
+  background-image: var(--gradient-clay);
+}
+
+@utility shadow-clay {
+  box-shadow: var(--shadow-clay);
+}
+
+@utility shadow-card {
+  box-shadow: var(--shadow-card);
+}
+
+@utility grain-overlay {
+  position: relative;
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.5;
+    background-image: radial-gradient(
+      oklch(0.348 0.135 21.7 / 0.08) 1px,
+      transparent 1px
+    );
+    background-size: 6px 6px;
+  }
+}
+
+@utility hero-scrim {
+  background-image: linear-gradient(
+    90deg,
+    oklch(0.208 0.024 18 / 0.88) 0%,
+    oklch(0.208 0.024 18 / 0.72) 55%,
+    oklch(0.208 0.024 18 / 0.5) 100%
+  );
+}
+
+/* Mobile overflow safety net — force all elements to respect the viewport.
+   Targets common culprits: wide tables, pre blocks, and any element with
+   an implicit min-width larger than the screen.
+   Lives in @layer base so Tailwind utilities (later cascade layer) still win. */
+@layer base {
+  @media (max-width: 767px) {
+    img,
+    video,
+    canvas,
+    svg {
+      max-width: 100%;
+      height: auto;
+    }
+
+    table {
+      display: block;
+      overflow-x: auto;
+      max-width: 100%;
+    }
+
+    pre,
+    code {
+      overflow-x: auto;
+      max-width: 100%;
+      white-space: pre-wrap;
+    }
+  }
+}
+
+/* WCAG 2.3.3 — respect the OS-level reduced-motion preference for anyone who
+   has it set, overriding animation/transition duration everywhere at once
+   rather than auditing every component individually. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* WCAG 2.4.1 — visually hidden until focused, so keyboard users can jump
+   past the repeated header/nav straight to page content. */
+.skip-link {
+  position: absolute;
+  top: -3rem;
+  left: 1rem;
+  z-index: 100;
+  border-radius: var(--radius-md);
+  background: var(--color-background);
+  color: var(--color-foreground);
+  padding: 0.625rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  box-shadow: var(--shadow-card);
+  transition: top 0.15s ease;
+}
+
+.skip-link:focus {
+  top: 1rem;
+}
+
+/* --------------------------------------------------------------- OYO-style animations */
+
+@keyframes navbar-in {
+  from {
+    opacity: 0;
+    transform: translateY(-12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes oyo-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes oyo-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes oyo-pop {
+  0% {
+    opacity: 0;
+    transform: scale(0.88);
+  }
+  60% {
+    transform: scale(1.03);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes oyo-slide-left {
+  from {
+    opacity: 0;
+    transform: translateX(-24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes oyo-slide-right {
+  from {
+    opacity: 0;
+    transform: translateX(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes oyo-shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@keyframes modal-pop {
+  from {
+    opacity: 0;
+    transform: scale(0.95) translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* Animation utility classes */
+.animate-navbar-in {
+  animation: navbar-in 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes marquee-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee-scroll 30s linear infinite;
+}
+
+.marquee-pause:hover .animate-marquee {
+  animation-play-state: paused;
+}
+
+.animate-fade-up {
+  animation: oyo-fade-up 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* Slow drift for hero photography — barely perceptible, killed by the
+   prefers-reduced-motion rule above. */
+@keyframes ken-burns {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.07);
+  }
+}
+
+.animate-ken-burns {
+  animation: ken-burns 24s ease-out both;
+}
+
+/* Scroll-reveal base state — paired with IntersectionObserver; the
+   animate-* class is applied once the element enters the viewport. */
+.reveal-hidden {
+  opacity: 0;
+}
+
+.animate-fade-in {
+  animation: oyo-fade-in 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.animate-pop {
+  animation: oyo-pop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+.animate-slide-left {
+  animation: oyo-slide-left 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.animate-slide-right {
+  animation: oyo-slide-right 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.animate-modal-pop {
+  animation: modal-pop 0.4s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* Staggered delay utilities */
+.delay-75 {
+  animation-delay: 75ms;
+}
+.delay-150 {
+  animation-delay: 150ms;
+}
+.delay-225 {
+  animation-delay: 225ms;
+}
+.delay-300 {
+  animation-delay: 300ms;
+}
+.delay-375 {
+  animation-delay: 375ms;
+}
+.delay-450 {
+  animation-delay: 450ms;
+}
+.delay-500 {
+  animation-delay: 500ms;
+}
+
+/* Page transition (updated to OYO fade-up) */
+@keyframes page-enter {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.page-animate {
+  animation: page-enter 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* --------------------------------------------------- OYO floating glassmorphic navbar */
+
+.oyo-navbar-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  overflow-x: clip;
+  padding-top: calc(14px - 8px * var(--nav-progress, 0));
+  padding-bottom: calc(14px - 8px * var(--nav-progress, 0));
+  padding-left: calc(10px - 2px * var(--nav-progress, 0));
+  padding-right: calc(10px - 2px * var(--nav-progress, 0));
+  transition: padding 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@media (min-width: 768px) {
+  .oyo-navbar-header {
+    padding-top: calc(32px - 18px * var(--nav-progress, 0));
+    padding-bottom: calc(32px - 18px * var(--nav-progress, 0));
+    padding-left: calc(24px - 6px * var(--nav-progress, 0));
+    padding-right: calc(24px - 6px * var(--nav-progress, 0));
+  }
+}
+
+@media (max-width: 767px) {
+  .oyo-navbar-inner > .oyo-navbar-content {
+    gap: 4px;
+    padding-inline: 8px;
+    padding-block: 2px;
+  }
+}
+
+.oyo-navbar-inner {
+  margin-inline: auto;
+  max-width: calc(1280px - 80px * var(--nav-progress, 0));
+  border-radius: calc(20px - 4px * var(--nav-progress, 0));
+  background-color: oklch(0.985 0.005 10 / calc(0.72 + 0.18 * var(--nav-progress, 0)));
+  backdrop-filter: blur(16px) saturate(160%);
+  -webkit-backdrop-filter: blur(16px) saturate(160%);
+  box-shadow: 0 10px 40px -10px oklch(0.208 0.024 18 / calc(0.08 + 0.07 * var(--nav-progress, 0)));
+  border: 1px solid oklch(0.898 0.012 8 / 0.5);
+  transition: max-width 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+    border-radius 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+    background-color 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@media (min-width: 768px) {
+  .oyo-navbar-inner {
+    border-radius: calc(32px - 8px * var(--nav-progress, 0));
+  }
+}
+
+.oyo-navbar-inner > .oyo-navbar-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: calc(8px - 2px * var(--nav-progress, 0));
+  padding-inline: calc(12px - 4px * var(--nav-progress, 0));
+  padding-block: calc(10px - 4px * var(--nav-progress, 0));
+  overflow-x: clip;
+  transition: padding 0.5s cubic-bezier(0.16, 1, 0.3, 1), gap 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@media (min-width: 768px) {
+  .oyo-navbar-inner > .oyo-navbar-content {
+    gap: calc(12px - 4px * var(--nav-progress, 0));
+    padding-inline: calc(24px - 8px * var(--nav-progress, 0));
+    padding-block: calc(12px - 4px * var(--nav-progress, 0));
+  }
+}
+
+/* Dark mode navbar */
+.dark .oyo-navbar-inner {
+  background-color: oklch(0.226 0.032 18 / calc(0.72 + 0.18 * var(--nav-progress, 0)));
+  border-color: oklch(1 0 0 / 0.08);
+  box-shadow: 0 10px 40px -10px oklch(0 0 0 / calc(0.3 + 0.1 * var(--nav-progress, 0)));
+}
